@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" >
+	<head>
+		<link rel="stylesheet" href="../live2d/css/live2d.css" />
+		<meta charset="utf-8" >
 
 <title>ABestXun</title>
-<meta name="description" content="">
+<meta name="description" content="&lt;h6&gt;这是我的个人博客，主要用来记录平时积累。&lt;h6&gt;">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://zhaowenxun.github.io//favicon.ico?v=1608629344003">
+<link rel="shortcut icon" href="https://zhaowenxun.github.io//favicon.ico?v=1608688580133">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -21,9 +22,9 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
-  </head>
-  <body>
-    <nav class="navbar border fixed split-nav">
+	</head>
+	<body>
+		<nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://zhaowenxun.github.io/">ABestXun</a></h3>
   </div>
@@ -77,24 +78,24 @@
 </nav>
 
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          
+		<div id="top" class="row site">
+			<div class="sm-12 md-8 col">
+				<div class="paper">
+					
 
-        </div>
-        
-        <div class="row flex-edges">
+				</div>
+
+				<div class="row flex-edges">
   
   
 </div>
 
-      </div>
-      
-      <div class="sm-12 md-4 col sidebar">
+			</div>
+
+			<div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://zhaowenxun.github.io//images/avatar.png?v=1608629344003" class="no-responsive avatar">
-    <div class="text-muted"></div>
+    <img src="https://zhaowenxun.github.io//images/avatar.png?v=1608688580133" class="no-responsive avatar">
+    <div class="text-muted"><h6>这是我的个人博客，主要用来记录平时积累。<h6></div>
     <div class="social-container">
       
         
@@ -128,12 +129,17 @@
     </div>
   </div>
   <div class="paper">
-    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zhaowenxun.github.io//atom.xml" target="_blank">RSS</a>
+    <a href="https://github.com/zhaowenxun" target="_blank">zhaowenxun</a> | <a class="rss" href="https://zhaowenxun.github.io//atom.xml" target="_blank">RSS</a>
   </div>
 </div>
 
-    </div>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+			<div id="landlord">
+				<div class="message" style="opacity:0"></div>
+				<canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+				<div class="hide-button">隐藏</div>
+			</div>
+		</div>
+		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <script type="application/javascript">
 
@@ -146,5 +152,16 @@ hljs.initHighlightingOnLoad()
 
 
 
-  </body>
+
+		<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+		<script type="text/javascript">
+			var message_Path = '/live2d/'
+			var home_Path = 'https://zhaowenxun.github.io/'
+		</script>
+		<script type="text/javascript" src="../live2d/js/live2d.js"></script>
+		<script type="text/javascript" src="../live2d/js/message.js"></script>
+		<script type="text/javascript">
+			loadlive2d("live2d", "../live2d/model/tia/model.json");
+		</script>
+	</body>
 </html>
