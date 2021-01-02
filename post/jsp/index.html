@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>JSP | ABestXun</title>
+<meta name="description" content="&lt;h6&gt;这是我的个人博客，主要用来记录平时积累。&lt;h6&gt;">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://zhaowenxun.github.io//favicon.ico?v=1609600576218">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zhaowenxun.github.io//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://zhaowenxun.github.io/">ABestXun</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>JSP</h1>
+            <p class="article-meta">
+              2020-12-28
+              
+                <a href="https://zhaowenxun.github.io/tag/PF3oOWXnS/" class="badge warning">
+                  javaweb
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <p>jsp: 用于客户端展示，本质也是servlet<br>
+servlet：</p>
+<h3 id="一-jsp内置对象都来自servlet包内的类">一： JSP内置对象：都来自Servlet包内的类</h3>
+<h4 id="九大内置对象">九大内置对象</h4>
+<ol>
+<li>request：表示一个请求，HttpServletRequest</li>
+<li>response：表示一次响应，HttpServletResponse</li>
+<li>pageContext：页面上下文，获取页面信息来着，PageContext</li>
+<li>session ：表示一次会话（包含很多request和response 一般用于保存用户信息）</li>
+<li>application：表示当前Web应用，全局对象，保存所有用户共享信息，ServletContext</li>
+<li>config：当前JSP对应的Servlet的ServletConfig对象，获取当前Servlet的信息</li>
+<li>out：向浏览器输出数据，JSPWriter</li>
+<li>page：当前JSP对应的Servlet对象，Servlet</li>
+<li>exception：表示JSP发生的异常，来自Exception。</li>
+</ol>
+<p>常用：request，response，session，application，pageContext</p>
+<h5 id="request常用的方法">request常用的方法：</h5>
+<ol>
+<li><mark>String</mark> getParameter(String key)获取客户端传来的参数</li>
+<li>void setAttribute(String key,Obejct value) 通过键值对的方式保存数据 <mark>一般set和get搭配使用</mark></li>
+<li><mark>Object</mark> getAttribute(String key)通过key获取数据 <mark>服务器内部数据传送用</mark></li>
+<li>RequestDispatchr getRequestDispatcher(String path) 返回一个RequestDispatchr 对象，该对象的forward方法用于请求转发。<br>
+转发：<br>
+request.getRequestDispatcher(&quot;test2.jsp&quot;).forward(requset,response);将数据和相应转发给test2</li>
+<li>String[] getParameterValues(String key); 获取客户端传来的多个同名参数</li>
+<li>void setCharactherEncoding(String charset) 指定每个请求的编码   //出现中文乱码的时候用</li>
+</ol>
+<p>异常情况：<br>
+200：正常<br>
+404：资源找不到<br>
+400：请求类型不匹配<br>
+500：java程序抛出异常</p>
+<h4 id="response常用的方法">response常用的方法：</h4>
+<ol>
+<li>sendRedirect(String path)重定向，页面之间的跳转</li>
+</ol>
+<p><mark>转发与重定向的区别</mark>：<br>
+转发：同一个请求在服务器之间传递，地址栏不变，也叫服务器跳转  //需要传数据，则用转发（多次转发有延时）<br>
+重定向：由客户端发送一次新的请求来访问跳转后的目标地址，地址栏改变，也叫客户端跳转。//不需要传数据则直接用重定向</p>
+<h4 id="session完成用户会话">session：完成用户会话</h4>
+<p>用户会话：<br>
+多个用户请求，服务器无法识别每一次Http请求来自哪一个终端，它只会接受一个请求信号，所以可能把某个用户请求发送给其他人，会话就是让服务器知道信息来着哪一个终端。<br>
+会话：就是客户端和服务器之间发生的一系列连续请求和响应进程 ，打开浏览器进行操作到关闭浏览器的过程。<br>
+会话状态：指服务器和浏览器会话过程中产生的状态信息，借助会话状态，服务器能过够把属于同一次会话的一系列请求和响应关联起来。<mark>同一个浏览器打开同一个网址则属于同一个会话</mark><br>
+通过getId() 获取当前session 的id 标识号</p>
+<h4 id="常用方法">常用方法：</h4>
+<ol>
+<li>void setMaxInactiveInterval(int interval) 设置session 的失效时间，单位为秒</li>
+<li>int getMaxInactiveInterval() 获取当前session 的失效时间</li>
+<li>void invalidate() 设置session 立即失效 （用于用户主动退出）</li>
+<li>⭐️ void setAttribute(String key,Object value) 通过键值对的形式来存储数据/修改数据</li>
+<li>️⭐️Object getAttribute(String key) 通过key对获取对应数据</li>
+<li>⭐️void removeAttribute(String key) 通过key删除对应数据，由于request由于时效有限 基本不用删除</li>
+</ol>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://zhaowenxun.github.io//images/avatar.png?v=1609600576218" class="no-responsive avatar">
+    <div class="text-muted"><h6>这是我的个人博客，主要用来记录平时积累。<h6></div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://zhaowenxun.github.io/post/ren-wu-pai-zhao-shi-ge-ji-qiao/">人物拍照十个技巧</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://zhaowenxun.github.io/post/el-biao-da-shi-expression-language/">EL表达式（Expression Language）</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://zhaowenxun.github.io/post/cookie/">Cookie</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://zhaowenxun.github.io/post/jsp/">JSP</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://zhaowenxun.github.io/tag/0zPQnZyKQ/" class="badge ">
+          摄影学习
+        </a>
+      
+        <a href="https://zhaowenxun.github.io/tag/PF3oOWXnS/" class="badge secondary">
+          javaweb
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    <a href="https://github.com/zhaowenxun" target="_blank">zhaowenxun</a> | <a class="rss" href="https://zhaowenxun.github.io//atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '1bebae27eca2819959c1',
+        clientSecret: 'cbb308f13093da37b80841eca2bb535344565186',
+        repo: 'zhaowenxun.github.io',
+        owner: 'zhaowenxun',
+        admin: ['zhaowenxun'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

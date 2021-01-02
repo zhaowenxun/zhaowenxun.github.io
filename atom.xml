@@ -2,12 +2,162 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhaowenxun.github.io/</id>
     <title>ABestXun</title>
-    <updated>2020-12-29T13:02:30.466Z</updated>
+    <updated>2021-01-02T15:16:22.607Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhaowenxun.github.io/"/>
     <link rel="self" href="https://zhaowenxun.github.io/atom.xml"/>
     <subtitle>&lt;h6&gt;这是我的个人博客，主要用来记录平时积累。&lt;h6&gt;</subtitle>
     <logo>https://zhaowenxun.github.io/images/avatar.png</logo>
     <icon>https://zhaowenxun.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, ABestXun</rights>
+    <rights>All rights reserved 2021, ABestXun</rights>
+    <entry>
+        <title type="html"><![CDATA[人物拍照十个技巧]]></title>
+        <id>https://zhaowenxun.github.io/post/ren-wu-pai-zhao-shi-ge-ji-qiao/</id>
+        <link href="https://zhaowenxun.github.io/post/ren-wu-pai-zhao-shi-ge-ji-qiao/">
+        </link>
+        <updated>2021-01-01T10:41:31.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>头部不要留白太多</li>
+<li>眼神光：
+<ol>
+<li>闪光灯制造眼神光</li>
+<li>灯光制造</li>
+</ol>
+</li>
+<li>眼神留白 白眼球太多：
+<ol>
+<li>看着自己鼻子，让黑眼球处于正中间</li>
+<li>视线转向相机</li>
+</ol>
+</li>
+<li>人像最好的拍照时间：日出或者日落前的最后一个小时
+<ol>
+<li>正午：眼神睁不开，身上阴影太强，所以要利用好<mark>光线</mark> 光线优于环境</li>
+</ol>
+</li>
+<li>人物要在场景或者构图最亮的区域，把人物主体放在亮的区域</li>
+<li>制造动感，动静结合的场景，快门慢一点</li>
+<li>采用引导性动作，伺机抓住机会连拍</li>
+<li>多使用<mark>逆光拍摄</mark>，产生轮廓光，使人物更加立体感，产生光芒</li>
+<li>采用灯光或者闪光灯来塑造光影，来降低画面的阴影</li>
+<li>多角度拍摄，多拍特写，拍摄情绪特写。</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[EL表达式（Expression Language）]]></title>
+        <id>https://zhaowenxun.github.io/post/el-biao-da-shi-expression-language/</id>
+        <link href="https://zhaowenxun.github.io/post/el-biao-da-shi-expression-language/">
+        </link>
+        <updated>2020-12-29T14:01:48.000Z</updated>
+        <content type="html"><![CDATA[<p>EL表达式：代替JSP页面中数据访问时的复杂编码</p>
+<p>非常便捷的取出（pageContext,request, session,application）中保存的数据，前提是先setAttribute，EL表达式相当于<mark>简化版的getAttribute</mark></p>
+<ol>
+<li>
+<p>EL查找顺序：pageContext&gt; request&gt;session&gt;application 依次查找，找到立即返回，在application 也找不到则返回null</p>
+</li>
+<li>
+<p>也可以指定作用域进行查找：</p>
+<p>如果要在pageContext里找: ${pageScope.name}</p>
+<p>其他：</p>
+<p>request: ${requestScope.name}</p>
+<p>session: ${sessionScope.name}</p>
+<p>application:${applicationScope.name} 加前缀在在指定作用域中找，找不到返回null</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cookie]]></title>
+        <id>https://zhaowenxun.github.io/post/cookie/</id>
+        <link href="https://zhaowenxun.github.io/post/cookie/">
+        </link>
+        <updated>2020-12-29T13:36:04.000Z</updated>
+        <content type="html"><![CDATA[<p>Cookie 是服务端在Http响应中附带传送给浏览器的一个文件，一旦浏览器接受文件并保存了某个Cookie，在之后的请求和响应中将会把这个cookie来回传递，这样通过cookie这个载体完成客户端和服务端的 数据交换。</p>
+<h3 id="使用">使用：</h3>
+<ol>
+<li>创建cookie：<br>
+<code>Cookie acookie = new Cookie(&quot;name&quot;,&quot;tom&quot;);</code><br>
+<code>response.addCookie(acookie);</code></li>
+<li>读取Cookie：<br>
+<code>Cookie[] cookies =request.getCookies();</code><br>
+<code>for(Cookie cookies:cookies){</code><br>
+<code>out.write(cookie.getName()+&quot;: &quot;+cookie.getValue()+&quot;&lt;br/&gt;&quot;);</code><br>
+<code>}</code></li>
+</ol>
+<h3 id="常用方法">常用方法：</h3>
+<ol>
+<li>void setMaxAge(int age) 设置Cookie的有效实际按，单位为秒</li>
+<li>int getMaxAge() 获取Cookie的有效时间</li>
+<li>String getName() 获取Cookie的name</li>
+<li>String getValue() 获取Cookie的value</li>
+</ol>
+<h2 id="比较-session-和cookie">比较 Session 和Cookie</h2>
+<p>session:保存在服务器，保存的数据是Object<br>
+会随着会话的结束而销毁，保存重要信息<br>
+Cookie:保存在本地，保存的数据是String 可以长期保存在浏览器里，与会话无关，保存不重要信息</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[JSP]]></title>
+        <id>https://zhaowenxun.github.io/post/jsp/</id>
+        <link href="https://zhaowenxun.github.io/post/jsp/">
+        </link>
+        <updated>2020-12-28T10:55:16.000Z</updated>
+        <content type="html"><![CDATA[<p>jsp: 用于客户端展示，本质也是servlet<br>
+servlet：</p>
+<h3 id="一-jsp内置对象都来自servlet包内的类">一： JSP内置对象：都来自Servlet包内的类</h3>
+<h4 id="九大内置对象">九大内置对象</h4>
+<ol>
+<li>request：表示一个请求，HttpServletRequest</li>
+<li>response：表示一次响应，HttpServletResponse</li>
+<li>pageContext：页面上下文，获取页面信息来着，PageContext</li>
+<li>session ：表示一次会话（包含很多request和response 一般用于保存用户信息）</li>
+<li>application：表示当前Web应用，全局对象，保存所有用户共享信息，ServletContext</li>
+<li>config：当前JSP对应的Servlet的ServletConfig对象，获取当前Servlet的信息</li>
+<li>out：向浏览器输出数据，JSPWriter</li>
+<li>page：当前JSP对应的Servlet对象，Servlet</li>
+<li>exception：表示JSP发生的异常，来自Exception。</li>
+</ol>
+<p>常用：request，response，session，application，pageContext</p>
+<h5 id="request常用的方法">request常用的方法：</h5>
+<ol>
+<li><mark>String</mark> getParameter(String key)获取客户端传来的参数</li>
+<li>void setAttribute(String key,Obejct value) 通过键值对的方式保存数据 <mark>一般set和get搭配使用</mark></li>
+<li><mark>Object</mark> getAttribute(String key)通过key获取数据 <mark>服务器内部数据传送用</mark></li>
+<li>RequestDispatchr getRequestDispatcher(String path) 返回一个RequestDispatchr 对象，该对象的forward方法用于请求转发。<br>
+转发：<br>
+request.getRequestDispatcher(&quot;test2.jsp&quot;).forward(requset,response);将数据和相应转发给test2</li>
+<li>String[] getParameterValues(String key); 获取客户端传来的多个同名参数</li>
+<li>void setCharactherEncoding(String charset) 指定每个请求的编码   //出现中文乱码的时候用</li>
+</ol>
+<p>异常情况：<br>
+200：正常<br>
+404：资源找不到<br>
+400：请求类型不匹配<br>
+500：java程序抛出异常</p>
+<h4 id="response常用的方法">response常用的方法：</h4>
+<ol>
+<li>sendRedirect(String path)重定向，页面之间的跳转</li>
+</ol>
+<p><mark>转发与重定向的区别</mark>：<br>
+转发：同一个请求在服务器之间传递，地址栏不变，也叫服务器跳转  //需要传数据，则用转发（多次转发有延时）<br>
+重定向：由客户端发送一次新的请求来访问跳转后的目标地址，地址栏改变，也叫客户端跳转。//不需要传数据则直接用重定向</p>
+<h4 id="session完成用户会话">session：完成用户会话</h4>
+<p>用户会话：<br>
+多个用户请求，服务器无法识别每一次Http请求来自哪一个终端，它只会接受一个请求信号，所以可能把某个用户请求发送给其他人，会话就是让服务器知道信息来着哪一个终端。<br>
+会话：就是客户端和服务器之间发生的一系列连续请求和响应进程 ，打开浏览器进行操作到关闭浏览器的过程。<br>
+会话状态：指服务器和浏览器会话过程中产生的状态信息，借助会话状态，服务器能过够把属于同一次会话的一系列请求和响应关联起来。<mark>同一个浏览器打开同一个网址则属于同一个会话</mark><br>
+通过getId() 获取当前session 的id 标识号</p>
+<h4 id="常用方法">常用方法：</h4>
+<ol>
+<li>void setMaxInactiveInterval(int interval) 设置session 的失效时间，单位为秒</li>
+<li>int getMaxInactiveInterval() 获取当前session 的失效时间</li>
+<li>void invalidate() 设置session 立即失效 （用于用户主动退出）</li>
+<li>⭐️ void setAttribute(String key,Object value) 通过键值对的形式来存储数据/修改数据</li>
+<li>️⭐️Object getAttribute(String key) 通过key对获取对应数据</li>
+<li>⭐️void removeAttribute(String key) 通过key删除对应数据，由于request由于时效有限 基本不用删除</li>
+</ol>
+]]></content>
+    </entry>
 </feed>
